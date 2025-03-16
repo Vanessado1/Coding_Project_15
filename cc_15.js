@@ -37,8 +37,13 @@ function addRiskItem(riskName, riskLevel, department) {
     // add event listener to resolve button    
     const resolveButton = riskCard.querySelector('.resolveButton');
         resolveButton.addEventListener('click', () => {
+            event.stopPropagation(); // prevent propagation
             riskDashboard.removeChild(riskCard);
         });
+    // prevent clicks inside the risk card 
+    riskCard.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
 }
 // handles form submittions 
 const riskForm = document.getElementById('riskForm');
