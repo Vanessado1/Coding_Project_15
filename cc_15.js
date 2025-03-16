@@ -54,6 +54,37 @@ const riskForm = document.getElementById('riskForm');
         // clears risk form
         riskForm.reset();
     });
+// Task 5 
+// function to increase risk levels 
+function increaseRiskLevels() {
+    const riskCards = document.querySelectorAll('.riskCard');
+    riskCards.forEach(card => {
+    const riskLevelElement = card.querySelector('.riskLevel');
+        let currentLevel = riskLevelElement.textContent.split(': ')[1];
+        let newLevel;
+
+        switch(currentLevel) {
+            case 'Low':
+                newLevel = 'Medium';
+                card.classList.remove('lowRisk');
+                card.classList.add('mediumRisk');
+                break;
+            case 'Medium':
+                newLevel ='High';
+                card.classList.remove('mediumRisk');
+                card.classList.add('highRisk');
+                break;
+            case 'High':
+                newLevel ='High';
+                break;
+        }
+        riskLevelElement.textContent = `Risk Level: ${newLevel}`;
+    });
+}
+// add event listener to increase risk levels button 
+const increaseButton = document.getElementById('increaseRiskLevels');
+    increaseButton.addEventListener('click', increaseRiskLevels);
+    
 // Test Cases 
 addRiskItem("Cybersecurity Threat", "High", "IT"); // should be red 
 addRiskItem("HR Compliance Issue", "Low", "Human Resources"); // should be green 
