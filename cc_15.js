@@ -40,7 +40,7 @@ function addRiskItem(riskName, riskLevel, department) {
             event.stopPropagation(); // prevent propagation
             riskDashboard.removeChild(riskCard);
         });
-    // prevent clicks inside the risk card 
+    // Click inside a risk card should not trigger a dashboard-wide event.
     riskCard.addEventListener('click', (event) => {
         event.stopPropagation();
     });
