@@ -9,7 +9,13 @@
     <div id="riskDashboard"> </div>
     <form id="riskForm">
         <input type="text" id="riskInput" placeholder="Enter new risk item" required>
-        <button type="submit"></button>
+        <select id="riskLevel" required>
+            <option value="" disabled select>Risk Level</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <input type="text" id="department" placeholder="Enter department" required><button type="submit"></button>
     </form>
     <script src="cc_15.js"></script>
 </body>
